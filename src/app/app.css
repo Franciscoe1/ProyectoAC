@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Top bar */
+.topbar {
+  background: #0a7c3a;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* Navbar */
+.navbar {
+  background: #e40046;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+}
+
+.navbar .links a {
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  height: 300px;
+  background: linear-gradient(90deg, #ff4d6d, #ff85a1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: white;
+  color: #e40046;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Título */
+.titulo {
+  text-align: center;
+  margin: 30px 0;
+}
+
+/* Productos */
+.productos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+.card {
+  width: 200px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Video */
+.video {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+/* Footer */
+.footer {
+  background: #0a7c3a;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}

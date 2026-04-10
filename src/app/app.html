@@ -1,44 +1,191 @@
-<nav class="topbar">
-  <p>📍 Encuentra tu tienda más cercana</p>
-</nav>
+<div class="topbar">
 
-<nav class="navbar">
-  <h1>🍩 Krispy Kreme</h1>
-  <div class="links">
-    <a>Inicio</a>
-    <a>Menú</a>
-    <a>Locales</a>
-    <a>Contacto</a>
+  <!-- IZQUIERDA (ICONOS) -->
+  <div class="left">
+    <a href="https://www.facebook.com/krispykreme" target="_blank">
+    <i class="fa-brands fa-facebook"></i>
+  </a>
+
+  <a href="https://www.instagram.com/krispykreme" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://www.tiktok.com/@krispykreme" target="_blank">
+    <i class="fa-brands fa-tiktok"></i>
+  </a>
   </div>
-</nav>
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>Cinnamon Rolls 🍩</h1>
-    <p>Los mejores donuts del mundo</p>
-    <button>Ordenar ahora</button>
+  <!-- CENTRO -->
+  <div class="center">
+    <a>Nuestra historia</a>
+    <a>Trabaja con nosotros</a>
+    <a>Cuéntanos tu experiencia</a>
   </div>
-</section>
 
-<h2 class="titulo">Nuestro Menú</h2>
-
-<p>Productos: {{ productos.length }}</p>
-<div class="productos">
-  <div class="card" *ngFor="let p of productos">
-    <h3>{{ p.nombre }}</h3>
-    <p>{{ p.precio }}</p>
-    <button>Comprar</button>
+  <!-- DERECHA -->
+  <div class="right">
+    <span> info@krispykreme.ec | pedidoscorporativos@krispykreme.ec</span>
   </div>
+
 </div>
 
-<section class="video">
-  <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/1APwq1df6Mw"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
+
+<div class="navbar">
+  <!-- LOGO -->
+  <div class="logo-container">
+    <img src="logo.png" alt="logo">
+  </div>
+
+  <!-- MENU -->
+  <div class="menu">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Inicio</a>
+  <a routerLink="/menu" routerLinkActive="active">Menú</a>
+  <a routerLink="/locales" routerLinkActive="active">Locales</a>
+  <a routerLink="/coleccionables" routerLinkActive="active">Coleccionables</a>
+  <a routerLink="/rewards" routerLinkActive="active">Rewards</a>
+  <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+</div>
+</div>
+
+
+<div class="slider">
+  <img [src]="imagenes[indice]" class="slider-img">
+
+  <button class="flecha izquierda" (click)="anterior()">❮</button>
+  <button class="flecha derecha" (click)="siguiente()">❯</button>
+</div>
+
+
+<div class="locales-bar">
+
+  <!-- IZQUIERDA -->
+  <div class="left">
+    <p>¿Ya conoces nuestros 22 locales?</p>
+  </div>
+
+  <!-- DERECHA -->
+  <div class="right">
+    <p>
+      Te esperamos en Moderna Plaza – San Marino – Village – Mall del Norte –
+      Urdesa – Aeropuerto – Terminal – Ceibos – Mall del Sol – Pampite –
+      Quicentro Norte – Portal Shopping – Mall el Jardín – Quicentro Sur –
+      City Mall – San Luis Shopping – Qanvas – El Recreo – Mall del Sur –
+      Centro Histórico – El Bosque – Bomboli
+    </p>
+  </div>
+
+</div>
+
+<div class="decoracion">
+    <img src="assets/videos/donaverde.png" alt="decoracion">
+  </div>
+
+<section class="menu-section">
+
+  <p class="subtitulo">descubre y saborea</p>
+  <h2 class="titulo-menu">NUESTR
+     <img src="assets/videos/O.png" class="letra-o">
+        MENÚ</h2>
+
+
+  <div class="cards">
+
+    <div class="card-menu">
+      <div class="card-header verde">DONAS</div>
+      <img src="/donas.png" class="card-img">
+    </div>
+
+    <div class="card-menu">
+      <div class="card-header naranja">BEBIDAS CALIENTES</div>
+      <img src="/calientes.png" class="card-img">
+    </div>
+
+    <div class="card-menu">
+      <div class="card-header rojo">BEBIDAS FRÍAS</div>
+      <img src="/frias.png" class="card-img">
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="video">
+  <video controls>
+    <source src="assets/videos/krispy.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<div class="corporativo">
+  <button class="btn-corporativo" (click)="irAPedidos()">
+    PEDIDOS CORPORATIVOS
+  </button>
+</div>
+
+<div class="decoracion1">
+    <img src="assets/videos/punto.png" alt="decoracion">
+  </div>
+
+<section class="contacto">
+
+  <div class="contacto-content">
+
+    <!-- TEXTO -->
+    <div class="texto-contacto">
+      <h2>MANTENGÁMONOS EN CONTACTO...</h2>
+      <p>Ingresa tu correo para asegurarte de estar informado/a.</p>
+    </div>
+
+    <!-- FORM REAL 🔥 -->
+    <form class="form-contacto" (submit)="registrarEmail($event)">
+
+      <input 
+        type="email" 
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        required
+      >
+
+      <button type="submit">REGÍSTRATE</button>
+
+    </form>
+
+  </div>
+
 </section>
 
 <footer class="footer">
-  <p>© Krispy Kreme</p>
+
+  <!-- PARTE VERDE -->
+  <div class="footer-top">
+
+    <div class="footer-container">
+
+      <!-- LOGO -->
+      <div class="footer-logo">
+        <img src="assets/videos/logo2.png" alt="Krispy Kreme">
+      </div>
+
+      <!-- LINKS -->
+      <div class="footer-links">
+        <a href="#">Inicio</a>
+        <a href="#">Menú Guayaquil</a>
+        <a href="#">Menú Quito</a>
+        <a href="#">Locales</a>
+        <a href="#">Coleccionables</a>
+        <a href="#">Contacto</a>
+        <a href="#">Términos y condiciones Rewards</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PARTE GRIS -->
+  <div class="footer-bottom">
+    <p>© Copyright Krispy Kreme Ecuador2026</p>
+  </div>
+
 </footer>

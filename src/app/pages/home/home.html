@@ -1,0 +1,71 @@
+<div class="slider">
+  <img [src]="imagenes[indice]" class="slider-img">
+
+  <button class="flecha izquierda" (click)="anterior()">❮</button>
+  <button class="flecha derecha" (click)="siguiente()">❯</button>
+</div>
+
+<div class="locales-bar">
+
+  <!-- IZQUIERDA -->
+  <div class="left">
+    <p>¿Ya conoces nuestros 22 locales?</p>
+  </div>
+
+  <!-- DERECHA -->
+  <div class="right">
+    <p>
+      Te esperamos en Moderna Plaza – San Marino – Village – Mall del Norte –
+      Urdesa – Aeropuerto – Terminal – Ceibos – Mall del Sol – Pampite –
+      Quicentro Norte – Portal Shopping – Mall el Jardín – Quicentro Sur –
+      City Mall – San Luis Shopping – Qanvas – El Recreo – Mall del Sur –
+      Centro Histórico – El Bosque – Bomboli
+    </p>
+  </div>
+
+</div>
+
+<div class="decoracion">
+  <img src="assets/videos/donaverde.png" alt="decoracion">
+</div>
+
+<section class="menu-section">
+
+  <p class="subtitulo">descubre y saborea</p>
+  <h2 class="titulo-menu">NUESTR
+     <img src="assets/videos/O.png" class="letra-o">
+        MENÚ</h2>
+
+
+  <div class="cards">
+
+    <div class="card-menu">
+      <div class="card-header verde">DONAS</div>
+      <img src="/donas.png" class="card-img">
+    </div>
+
+    <div class="card-menu">
+      <div class="card-header naranja">BEBIDAS CALIENTES</div>
+      <img src="/calientes.png" class="card-img">
+    </div>
+
+    <div class="card-menu">
+      <div class="card-header rojo">BEBIDAS FRÍAS</div>
+      <img src="/frias.png" class="card-img">
+    </div>
+
+  </div>
+
+</section>
+
+<div class="video">
+  <video controls>
+    <source src="assets/videos/krispy.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="corporativo">
+  <button class="btn-corporativo" (click)="irAPedidos()">
+    PEDIDOS CORPORATIVOS
+  </button>
+</div>

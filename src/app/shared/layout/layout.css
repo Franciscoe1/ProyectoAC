@@ -1,0 +1,245 @@
+a {
+  text-decoration: none;  /* quita subrayado */
+  color: inherit;         /* usa color del padre */
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Top bar */
+.topbar {
+  font-family: 'Poppins', sans-serif;
+  background: #0a6c36;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 40px;
+  font-size: 14px;
+}
+
+/* IZQUIERDA */
+.topbar .left i {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+/* CENTRO */
+.topbar .center a {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+/* DERECHA */
+.topbar .right {
+  font-size: 13px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #ffffff;
+}
+
+/* LOGO */
+.logo-container img {
+  height: 75px;
+  object-fit: contain;
+}
+
+/* MENU */
+.menu a {
+  margin: 0 15px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  color: #222;
+}
+
+/* LINK ACTIVO (línea roja abajo) */
+.menu .active {
+  color: #e4002b;
+}
+
+.menu .active:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: red;
+  bottom: -8px;
+  left: 0;
+}
+
+/* DECORACIÓN 1 */
+.decoracion1 {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: -10px;
+}
+
+.decoracion1 img {
+  object-fit: contain;
+  margin-top: -50px;
+  margin-bottom: -10px;
+}
+
+/* SECCIÓN ROJA */
+.contacto {
+  background: linear-gradient(90deg, #d91f2a, #c61624);
+  padding: 40px 60px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CONTENIDO */
+.contacto-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* TEXTO */
+.texto-contacto h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.texto-contacto p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* FORM */
+.form-contacto {
+  display: flex;
+  gap: 15px;
+}
+
+/* INPUT */
+.form-contacto input {
+  padding: 15px 20px;
+  border-radius: 25px;
+  border: none;
+  width: 280px;
+  outline: none;
+}
+
+/* BOTÓN */
+.form-contacto button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-contacto button:hover {
+  background: white;
+  color: #d91f2a;
+}
+
+.contacto::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/videos/transparencia.png') repeat;
+  opacity: 0.04; /*  transparencia */
+  top: 0;
+  left: 0;
+  background-size: 140px;
+}
+
+/* FOOTER GENERAL */
+.footer {
+  width: 100%;
+}
+
+/* PARTE VERDE */
+.footer-top {
+  background: #0a6c36;
+  padding: 10px 100px;
+  box-shadow: 0 -8px 20px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+.footer-top {
+  position: relative;
+}
+
+.footer-top::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.3),
+    transparent
+  );
+}
+
+/* CONTENIDO */
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* LOGO */
+.footer-logo img {
+  width: 350px;
+}
+
+/* LINKS */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: Poppins, sans-serif;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: underline;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+/* PARTE GRIS */
+.footer-bottom {
+  background: #ffffff;
+  text-align: center;
+  padding: 25px;
+}
+
+.footer-bottom p {
+  color: #0a6c36;
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+}

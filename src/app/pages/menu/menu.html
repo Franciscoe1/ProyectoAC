@@ -1,0 +1,41 @@
+<!-- Contenido específico del menú aquí -->
+<div class="decoracion">
+  <img src="assets/videos/decoracionmenu.png" alt="decoracion">
+</div>
+
+
+<div class="filtros">
+
+  <button 
+    [class.active]="categoriaActiva === 'donas'"
+    (click)="cambiarCategoria('donas')">
+    Donas
+  </button>
+
+  <button 
+    [class.active]="categoriaActiva === 'frias'"
+    (click)="cambiarCategoria('frias')">
+    Bebidas Frías y Frappes
+  </button>
+
+  <button 
+    [class.active]="categoriaActiva === 'calientes'"
+    (click)="cambiarCategoria('calientes')">
+    Bebidas Calientes
+  </button>
+
+</div>
+
+
+<div class="productos" [class.animar]="animar">
+
+  <div *ngFor="let p of productos" class="card-producto">
+
+    <img [src]="p.imagen">
+    <h3>{{p.nombre}}</h3>
+    <p>{{p.subtitulo}}</p>
+    <p>{{p.descripcion}}</p>
+
+  </div>
+
+</div>

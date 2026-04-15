@@ -23,20 +23,27 @@
 }
 
 .filtros button {
-  padding: 12px 25px;
+  padding: 14px 30px;
   border-radius: 30px;
   border: none;
   font-weight: 600;
+  font-size: 18px;
   cursor: pointer;
-  background: #eee;
+  background: #fffefe;
   color: #0a6c36;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* BOTÓN ACTIVO  */
 .filtros button.active {
   background: #d70c24;
   color: white;
+}
+
+/* HOVER */
+.filtros button:hover {
+  transform: scale(1.05);
 }
 
 /* ESTILOS DE LOS PRODUCTOS */
@@ -68,31 +75,41 @@
 .card-producto img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 15px;
   margin-bottom: 15px;
+  transition: transform 0.3s ease;
+  background: white; /* opcional para mejor look */
+}
+
+/* HOVER */
+.card-producto:hover img {
+  transform: scale(0.95); /*se hace más pequeña */
 }
 
 .card-producto h3 {
   color: #0a6c36;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 12px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  margin: 10px 0;
+  line-height: 1.2;
 }
 
-.card-producto p {
-  color: #666;
+.card-producto p:last-of-type {
+  color: #555;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  line-height: 1.5;
-  margin: 10px 0;
+  line-height: 1.6;
 }
 
 .card-producto p:first-of-type {
   color: #ff0000;
+  font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 
 /* 🔥 ANIMACIÓN DE ENTRADA */

@@ -1,9 +1,45 @@
-<!-- Contenido específico del menú aquí -->
+<!-- DECORACIÓN -->
 <div class="decoracion">
   <img src="assets/videos/decoracionmenu.png" alt="decoracion">
 </div>
 
+<!-- 🛒 MINI CARRITO -->
+<div class="carrito-wrapper">
+  <div class="mini-carrito">
 
+    <!-- HEADER -->
+    <div class="carrito-header">
+      🛒 Carrito ({{ total }})
+    </div>
+
+    <!-- BODY -->
+    <div class="carrito-body">
+
+      <div *ngIf="itemsCarrito.length === 0" class="vacio">
+        Tu carrito está vacío
+      </div>
+
+      <div *ngFor="let item of itemsCarrito" class="item-carrito">
+        <span class="nombre">{{item.producto}}</span>
+        <span class="cantidad">x{{item.cantidad}}</span>
+      </div>
+
+    </div>
+
+    <!-- TOTAL -->
+    <div class="total">
+      Total items: {{ total }}
+    </div>
+
+    <!-- BOTÓN -->
+    <div class="carrito-footer">
+      <button (click)="irCarrito()">Ver carrito</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- 🔘 FILTROS -->
 <div class="filtros">
 
   <button 
@@ -26,15 +62,23 @@
 
 </div>
 
-
+<!-- 🧁 PRODUCTOS -->
 <div class="productos" [class.animar]="animar">
 
   <div *ngFor="let p of productos" class="card-producto">
 
     <img [src]="p.imagen">
+
     <h3>{{p.nombre}}</h3>
-    <p>{{p.subtitulo}}</p>
-    <p>{{p.descripcion}}</p>
+
+    <p class="subtitulo">{{p.subtitulo}}</p>
+
+    <p class="descripcion">{{p.descripcion}}</p>
+
+    <!-- 🛒 AGREGAR -->
+    <button class="btn-agregar" (click)="agregarAlCarrito(p)">
+      Agregar al carrito
+    </button>
 
   </div>
 

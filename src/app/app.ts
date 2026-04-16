@@ -8,3 +8,4 @@ import { LayoutComponent } from './shared/layout/layout';
   template: '<app-layout></app-layout>',
 })
 export class App {}
+

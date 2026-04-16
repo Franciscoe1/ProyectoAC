@@ -1,0 +1,49 @@
+<div class="carrito-container">
+
+  <!-- IZQUIERDA -->
+  <div class="carrito-lista">
+
+    <h2>Carrito de Compras</h2>
+
+    <!-- 🔥 AQUÍ ESTÁ LA CLAVE -->
+    <div *ngFor="let item of items" class="producto">
+
+      <img [src]="item.imagen || 'assets/default.png'">
+
+      <div class="info">
+        <h3>{{item.producto}}</h3>
+
+        <p class="stock">En stock</p>
+
+        <div class="acciones">
+
+          <div class="contador">
+            <button (click)="restar(item)">-</button>
+            <span>{{item.cantidad}}</span>
+            <button (click)="sumar(item)">+</button>
+          </div>
+
+          <button class="delete" (click)="eliminar(item)">
+            Eliminar
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- DERECHA -->
+  <div class="resumen">
+
+    <h3>Subtotal ({{total.length}} items)</h3>
+
+    <button class="checkout">
+      Proceder al pago
+    </button>
+
+  </div>
+
+</div>

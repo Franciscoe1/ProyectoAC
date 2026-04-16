@@ -39,17 +39,17 @@
 
   <div class="cards">
 
-    <div class="card-menu">
+    <div class="card-menu" [routerLink]="['/menu']" [queryParams]="{categoria: 'donas'}">
       <div class="card-header verde">DONAS</div>
       <img src="/donas.png" class="card-img">
     </div>
 
-    <div class="card-menu">
+    <div class="card-menu" [routerLink]="['/menu']" [queryParams]="{categoria: 'calientes'}">
       <div class="card-header naranja">BEBIDAS CALIENTES</div>
       <img src="/calientes.png" class="card-img">
     </div>
 
-    <div class="card-menu">
+    <div class="card-menu" [routerLink]="['/menu']" [queryParams]="{categoria: 'frias'}">
       <div class="card-header rojo">BEBIDAS FRÍAS</div>
       <img src="/frias.png" class="card-img">
     </div>
@@ -65,7 +65,10 @@
 </div>
 
 <div class="corporativo">
-  <button class="btn-corporativo" (click)="irAPedidos()">
-    PEDIDOS CORPORATIVOS
-  </button>
+  <a 
+    href="https://api.whatsapp.com/send?phone=593992065413&text=Hola"target="_blank">
+    <button class="btn-corporativo">
+      PEDIDOS CORPORATIVOS
+    </button>
+  </a>
 </div>

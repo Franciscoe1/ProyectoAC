@@ -1,91 +1,178 @@
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
 .carrito-container {
   display: flex;
-  gap: 20px;
-  padding: 30px;
+  gap: 30px;
+  padding: 40px;
+  background: var(--gris);
+  font-family: 'Poppins', sans-serif;
 }
 
-/* IZQUIERDA */
+/* =========================
+   LISTA IZQUIERDA
+========================= */
 .carrito-lista {
   flex: 3;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 25px;
+  border-radius: 15px;
 }
 
+.carrito-lista h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--verde);
+  margin-bottom: 20px;
+}
+
+/* =========================
+   PRODUCTO
+========================= */
 .producto {
   display: flex;
   gap: 20px;
-  border-bottom: 1px solid #eee;
   padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  align-items: center;
 }
 
+/* imagen */
 .producto img {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   object-fit: contain;
+  background: white;
 }
 
+/* info */
 .info h3 {
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--verde);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+/* subtitulo estilo krispy */
+.info h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--rojo);
+  margin-top: 5px;
+}
+
+/* stock */
+.stock {
+  color: var(--verde);
+  font-size: 14px;
   margin-bottom: 10px;
 }
 
-.stock {
-  color: green;
-  font-size: 14px;
-}
-
-/* CONTROLES */
+/* =========================
+   CONTROLES
+========================= */
 .acciones {
-  margin-top: 10px;
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 15px;
 }
 
+/* contador */
 .contador {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  border-radius: 30px;
   overflow: hidden;
+  border: 1px solid #ddd;
 }
 
+/* botones */
 .contador button {
-  background: #f0f0f0;
+  background: var(--verde);
+  color: white;
   border: none;
-  padding: 5px 10px;
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
+.contador button:hover {
+  background: #084d28;
+}
+
+/* número */
 .contador span {
-  padding: 0 10px;
+  padding: 0 15px;
   font-weight: bold;
+  font-size: 16px;
 }
 
+/* eliminar */
 .delete {
   background: none;
   border: none;
-  color: #007185;
+  color: var(--rojo);
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-/* DERECHA */
+.delete:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   RESUMEN DERECHA
+========================= */
 .resumen {
   flex: 1;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 25px;
+  border-radius: 15px;
   height: fit-content;
+  position: sticky;
+  top: 120px;
 }
 
+.resumen h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+/* botón pago */
 .checkout {
   width: 100%;
-  background: #ffd814;
+  background: var(--amarillo);
   border: none;
-  padding: 12px;
-  border-radius: 20px;
+  padding: 14px;
+  border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.checkout:hover {
+  background: #12833d;
+  transform: scale(1.03);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .carrito-container {
+    flex-direction: column;
+  }
+
+  .resumen {
+    position: relative;
+    top: 0;
+  }
 }

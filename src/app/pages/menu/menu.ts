@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { CarritoService } from '../../shared/carrito.service';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +19,7 @@ export class MenuComponent implements OnInit {
   carritoId: number | null = null;
   itemsCarrito: any[] = [];
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef, private route: ActivatedRoute, private router: Router) {}
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private carritoService: CarritoService) {}
 
   ngOnInit() {
   this.route.queryParams.subscribe((params) => {
@@ -121,6 +122,9 @@ agregarProducto(producto: any) {
     `http://127.0.0.1:8000/api/carrito/${this.carritoId}/`
   ).subscribe(data => {
     this.itemsCarrito = data.items || [];
+
+    const total = this.itemsCarrito.reduce((sum, i) => sum + i.cantidad, 0);
+    this.carritoService.setCantidad(total);
   });
 }
 

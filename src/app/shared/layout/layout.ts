@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CarritoService } from '../carrito.service';
 
 @Component({
   selector: 'app-layout',
@@ -12,14 +13,29 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./layout.css'],
 })
 export class LayoutComponent implements OnInit {
+
   email: string = '';
+
+  // 🔥 BADGE DEL CARRITO
+  cantidad: number = 0;
 
   constructor(
     private http: HttpClient,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private carritoService: CarritoService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    // 🔥 ESCUCHA CAMBIOS DEL CARRITO (GLOBAL)
+    this.carritoService.contador$.subscribe(c => {
+      this.cantidad = c;
+
+      // opcional pero ayuda a refrescar UI
+      this.cdr.detectChanges();
+    });
+
+  }
 
   registrarEmail(event: Event) {
     event.preventDefault();

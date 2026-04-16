@@ -1,3 +1,18 @@
+/* ESTILOS DE LA DECORACIÓN  */
+.decoracion {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 90px; /* controla el recorte */
+}
+
+.decoracion img {
+  width: 100%;
+  position: absolute;
+  top: -2px; /* mueve la imagen hacia arriba */
+  left: 0;
+}
+
 /* =========================
    CONTENEDOR GENERAL
 ========================= */
@@ -175,4 +190,85 @@
     position: relative;
     top: 0;
   }
+}
+/* ANIMACIÓN */
+.animar {
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* producto animado */
+.resumen {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  height: fit-content;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.resumen h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.precio {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0a6c36;
+  margin-bottom: 20px;
+}
+
+/* botón pago */
+.checkout {
+  width: 100%;
+  background: #d70c24;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.checkout:hover {
+  background: #b5091c;
+  transform: scale(1.05);
+}
+
+/* FORMULARIO DE CHECKOUT */
+.checkout-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkout-form input,
+.checkout-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.confirmar {
+  background: #0a6c36;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.confirmar:hover {
+  background: #084d28;
 }

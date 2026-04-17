@@ -1,0 +1,33 @@
+<div class="decoracion">
+  <img src="assets/videos/decoracionmenu.png" alt="decoracion">
+</div>
+
+<div class="pedidos-container">
+
+  <h2>Mis pedidos</h2>
+
+  <!-- 🔥 SI NO HAY PEDIDOS -->
+<div *ngIf="pedidos.length === 0" class="vacio">
+  No tienes pedidos aún 🍩
+</div>
+ <!-- 🔥 SI HAY PEDIDOS -->
+<div *ngIf="pedidos.length > 0">
+  <div *ngFor="let p of pedidos" class="pedido-card">
+
+    <div class="pedido-header"> 
+      <strong>Pedido #{{p.id}}</strong>
+      <span>{{p.fecha | date:'medium'}}</span>
+    </div>
+
+    <div class="pedido-body">
+
+      <div *ngFor="let item of p.items" class="item">
+        <span>{{item.producto}}</span>
+        <span>x{{item.cantidad}}</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

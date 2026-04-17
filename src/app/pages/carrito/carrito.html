@@ -54,7 +54,7 @@
 
   </div>
 
-  
+
 <div *ngIf="mostrarCheckout" class="checkout-form">
 
   <h3>Datos de envío</h3>
@@ -72,6 +72,20 @@
 
   <button class="confirmar" (click)="confirmarCompra()">
     Confirmar compra
+  </button>
+
+</div>
+
+<div class="overlay" *ngIf="compraExitosa">
+
+  <div class="check">
+    ✔
+  </div>
+
+  <p>Compra realizada</p>
+
+  <button class="btn-cerrar" (click)="cerrarCompra()">
+    Continuar comprando
   </button>
 
 </div>

@@ -18,6 +18,7 @@ export class CarritoComponent implements OnInit {
   carritoId: number | null = null;
   mostrarCheckout = false;
   form = {nombre: '',direccion: '',email: '',metodo: 'tarjeta'};
+  compraExitosa = false;
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef, private carritoService: CarritoService) {}
 
@@ -119,30 +120,50 @@ export class CarritoComponent implements OnInit {
   });
 }
 
-confirmarCompra() {
+confirmarCompra() { 
   if (!this.form.nombre || !this.form.direccion || !this.form.email) {
     alert("⚠️ Completa todos los campos");
     return;
   }
 
-  alert("✅ Compra realizada con éxito 🎉");
+  this.http.post('http://127.0.0.1:8000/api/pedido/', {
+    nombre: this.form.nombre,
+    direccion: this.form.direccion,
+    email: this.form.email,
+    items: this.items
+  }).subscribe({
+    next: () => {
 
-  // 🔥 1. limpiar items
-  this.items = [];
+      // 🔥 animación opcional
+      this.compraExitosa = true;
 
-  // 🔥 2. limpiar carrito guardado
-  localStorage.removeItem('carrito');
 
-  // 🔥 3. resetear contador GLOBAL (ESTA ES LA CLAVE)
-  this.carritoService.setCantidad(0);
+      // limpiar carrito
+      this.items = [];
 
-  // 🔥 4. ocultar checkout
-  this.mostrarCheckout = false;
+      // borrar storage
+      localStorage.removeItem('carrito');
 
-  // 🔥 opcional: refrescar UI
-  this.cdr.detectChanges();
+      // reset badge
+      this.carritoService.setCantidad(0);
+
+      // cerrar checkout
+      this.mostrarCheckout = false;
+
+      // refrescar UI
+      this.cdr.detectChanges();
+    },
+    error: (err) => {
+      console.error("❌ ERROR compra:", err);
+      alert("Error al procesar la compra");
+    }
+  });
 }
 
+cerrarCompra() {
+  this.compraExitosa = false;
+  window.location.href = '/menu';
+}
 
   get total() {
     return this.items.reduce((sum, i) => sum + i.cantidad, 0);

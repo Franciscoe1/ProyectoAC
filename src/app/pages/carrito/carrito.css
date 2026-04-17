@@ -272,3 +272,90 @@
 .confirmar:hover {
   background: #084d28;
 }
+
+/* OVERLAY DE COMPRA EXITOSA */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.check {
+  font-size: 60px;
+  background: #0a6c36;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+/* =========================
+   ESTILOS DE CHECKOUT  
+========================= */
+
+.checkout-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.checkout-box input,
+.checkout-box select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.btn-comprar {
+  width: 100%;
+  background: #d70c24;
+  color: white;
+  padding: 14px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-comprar:hover {
+  transform: scale(1.05);
+  background: #b5091c;
+}
+
+/* botón cerrar */
+.btn-cerrar {
+  margin-top: 20px;
+  background: #d70c24;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-cerrar:hover {
+  background: #b5091c;
+  transform: scale(1.05);
+}

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CarritoService } from '../carrito.service';
+ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -22,7 +23,8 @@ export class LayoutComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private cdr: ChangeDetectorRef,
-    private carritoService: CarritoService
+    private carritoService: CarritoService,
+    private router: Router
   ) {}
 
   ngOnInit() {

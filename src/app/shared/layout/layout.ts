@@ -1,10 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CarritoService } from '../carrito.service';
- import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -15,10 +14,17 @@ import { CarritoService } from '../carrito.service';
 })
 export class LayoutComponent implements OnInit {
 
+  // 📩 SUSCRIPCIÓN
   email: string = '';
 
-  // 🔥 BADGE DEL CARRITO
+  // 🛒 BADGE CARRITO
   cantidad: number = 0;
+
+  // 👤 USUARIO
+  usuario: any = null;
+
+  // 🔔 TOAST
+  mensaje: string = '';
 
   constructor(
     private http: HttpClient,
@@ -29,21 +35,72 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
 
-    // 🔥 ESCUCHA CAMBIOS DEL CARRITO (GLOBAL)
+    // 🔐 cargar usuario
+    this.cargarUsuario();
+
+    // 🔄 detectar login/logout entre pestañas
+    window.addEventListener('storage', () => {
+      this.cargarUsuario();
+    });
+
+    // 🛒 actualizar carrito
     this.carritoService.contador$.subscribe(c => {
       this.cantidad = c;
-
-      // opcional pero ayuda a refrescar UI
       this.cdr.detectChanges();
+    });
+
+    // 🔥 MOSTRAR MENSAJE AL CAMBIAR DE RUTA
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+
+        const mensaje = localStorage.getItem('mensajeLogin');
+
+        if (mensaje) {
+          this.mostrarMensaje(mensaje);
+          localStorage.removeItem('mensajeLogin');
+        }
+
+      }
     });
 
   }
 
+  // 🔐 LOGOUT
+  logout() {
+    localStorage.removeItem('usuario');
+    this.usuario = null;
+    this.router.navigate(['/']);
+  }
+
+  // 🔐 CARGAR USUARIO
+  cargarUsuario() {
+    const user = localStorage.getItem('usuario');
+
+    if (user) {
+      this.usuario = JSON.parse(user);
+    } else {
+      this.usuario = null;
+    }
+
+    this.cdr.detectChanges();
+  }
+
+  // 🔔 TOAST MENSAJE
+  mostrarMensaje(texto: string) {
+    this.mensaje = texto;
+
+    setTimeout(() => {
+      this.mensaje = '';
+      this.cdr.detectChanges();
+    }, 2500);
+  }
+
+  // 📩 REGISTRAR EMAIL
   registrarEmail(event: Event) {
     event.preventDefault();
 
     if (!this.email) {
-      alert('Ingresa un email válido');
+      this.mostrarMensaje('⚠️ Ingresa un email válido');
       return;
     }
 
@@ -51,13 +108,14 @@ export class LayoutComponent implements OnInit {
       email: this.email
     }).subscribe({
       next: () => {
-        alert('¡Registrado correctamente! 🎉');
+        this.mostrarMensaje('🎉 ¡Registrado correctamente!');
         this.email = '';
       },
       error: (err) => {
         console.error(err);
-        alert('Error al registrar el email');
+        this.mostrarMensaje('❌ Error al registrar el email');
       }
     });
   }
+
 }

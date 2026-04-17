@@ -23,18 +23,31 @@ export class PedidosComponent implements OnInit {
   }
 
   cargarPedidos() {
-    this.http.get<any[]>('http://127.0.0.1:8000/api/pedidos/')
-      .subscribe({
-        next: (data) => {
-          console.log("📦 PEDIDOS:", data);
 
-          this.pedidos = data || [];
+  // 🔐 OBTENER USUARIO LOGUEADO
+  const user = localStorage.getItem('usuario');
 
-          // 🔥 ESTO SOLUCIONA TODO
-          this.cdr.detectChanges();
-        },
-        error: (err) => console.error(err)
-      });
+  if (!user) {
+    console.log("❌ No hay usuario logueado");
+    this.pedidos = [];
+    return;
   }
+
+  const usuario = JSON.parse(user);
+
+  // 🔥 AÑADIMOS EL EMAIL A LA URL (SIN CAMBIAR TU LÓGICA)
+  this.http.get<any[]>(`http://127.0.0.1:8000/api/pedidos/?email=${usuario.email}`)
+    .subscribe({
+      next: (data) => {
+        console.log("📦 PEDIDOS:", data);
+
+        this.pedidos = data || [];
+
+        // 🔥 ESTO SOLUCIONA TODO (LO DEJAMOS)
+        this.cdr.detectChanges();
+      },
+      error: (err) => console.error(err)
+    });
+}
 
 }

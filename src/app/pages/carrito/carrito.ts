@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
 import { CarritoService } from '../../shared/carrito.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito',
@@ -20,7 +21,11 @@ export class CarritoComponent implements OnInit {
   form = {nombre: '',direccion: '',email: '',metodo: 'tarjeta'};
   compraExitosa = false;
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef, private carritoService: CarritoService) {}
+  constructor(
+    private http: HttpClient, 
+    private cdr: ChangeDetectorRef, 
+    private carritoService: CarritoService, 
+    private router: Router) {}
 
   ngOnInit() {
     console.log("🧠 localStorage:", localStorage.getItem('carrito'));
@@ -121,6 +126,16 @@ export class CarritoComponent implements OnInit {
 }
 
 confirmarCompra() { 
+
+  // 🔥 VALIDAR USUARIO
+  const usuario = localStorage.getItem('usuario');
+
+  if (!usuario) {
+    alert("⚠️ Debes registrarte primero");
+    this.router.navigate(['/registro']);
+    return;
+  }
+
   if (!this.form.nombre || !this.form.direccion || !this.form.email) {
     alert("⚠️ Completa todos los campos");
     return;
@@ -134,23 +149,16 @@ confirmarCompra() {
   }).subscribe({
     next: () => {
 
-      // 🔥 animación opcional
       this.compraExitosa = true;
 
-
-      // limpiar carrito
       this.items = [];
 
-      // borrar storage
       localStorage.removeItem('carrito');
 
-      // reset badge
       this.carritoService.setCantidad(0);
 
-      // cerrar checkout
       this.mostrarCheckout = false;
 
-      // refrescar UI
       this.cdr.detectChanges();
     },
     error: (err) => {

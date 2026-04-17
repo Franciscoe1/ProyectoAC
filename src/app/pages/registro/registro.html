@@ -1,0 +1,16 @@
+<!-- DECORACIÓN -->
+<div class="decoracion">
+  <img src="assets/videos/donaroja.png" alt="decoracion">
+</div>
+
+<div class="registro-container">
+
+  <h2>Crear cuenta</h2>
+
+  <input [(ngModel)]="form.nombre" placeholder="Nombre">
+  <input [(ngModel)]="form.email" placeholder="Email">
+  <input [(ngModel)]="form.password" placeholder="Contraseña" type="password">
+
+  <button (click)="registrar()">Registrarse</button>
+
+</div>

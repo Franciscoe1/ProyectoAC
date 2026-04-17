@@ -1,0 +1,94 @@
+.registro-container {
+  max-width: 400px;
+  margin: 120px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+/* título */
+.registro-container h2 {
+  color: #0a6c36;
+  font-weight: 800;
+}
+
+/* inputs */
+.registro-container input {
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* focus */
+.registro-container input:focus {
+  border-color: #d70c24;
+  box-shadow: 0 0 5px rgba(215,12,36,0.3);
+}
+
+/* botón */
+.registro-container button {
+  background: #0a6c36;
+  color: white;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* hover */
+.registro-container button:hover {
+  background: #084d28;
+  transform: scale(1.05);
+}
+
+.login-container,
+.registro-container {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cambiar fuente */
+.registro-container,
+.login-container {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Cambiar fuente de los inputs y botones */
+.registro-container input,
+.registro-container button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ESTILOS DE LA DECORACIÓN  */
+.decoracion {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 90px; /* controla el recorte */
+}
+
+.decoracion img {
+  width: 100%;
+  position: absolute;
+  top: 1px; /* mueve la imagen hacia arriba */
+  left: 0;
+}

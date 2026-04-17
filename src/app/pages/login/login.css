@@ -1,0 +1,89 @@
+.login-container {
+  max-width: 400px;
+  margin: 120px auto;
+  padding: 30px;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* título */
+.login-container h2 {
+  color: #0a6c36;
+  font-weight: 800;
+}
+
+/* inputs */
+.login-container input {
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* focus */
+.login-container input:focus {
+  border-color: #d70c24;
+  box-shadow: 0 0 5px rgba(215,12,36,0.3);
+}
+
+/* botón */
+.login-container button {
+  background: #d70c24;
+  color: white;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* hover */
+.login-container button:hover {
+  background: #b5091c;
+  transform: scale(1.05);
+}
+
+.login-container,
+.registro-container {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*CAMBIAR LA FUENTE DE LOS INPUTS Y BOTONES PARA QUE SEA IGUAL A LA DEL LAYOUT*/
+.login-container input,
+.login-container button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ESTILOS DE LA DECORACIÓN  */
+.decoracion {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 90px; /* controla el recorte */
+}
+
+.decoracion img {
+  width: 100%;
+  position: absolute;
+  top: -2px; /* mueve la imagen hacia arriba */
+  left: 0;
+}

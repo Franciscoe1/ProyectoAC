@@ -1,0 +1,72 @@
+<!-- DECORACIÓN -->
+<div class="decoracion">
+  <img src="assets/videos/donaroja.png" alt="decoracion">
+</div>
+
+<!-- 🔔 TOAST -->
+<div class="toast" *ngIf="mensaje">
+  {{mensaje}}
+</div>
+
+<div class="contacto-container">
+
+  <h1>CONTÁCTANOS</h1>
+
+  <h2 class="subtitulo">¡Tu voz es nuestro glaseado secreto!</h2>
+  <p class="descripcion">
+    Contacta con nosotros y endulza tu experiencia Krispy Kreme Ecuador.
+  </p>
+
+  <!-- 🔥 SI NO HA ENVIADO -->
+  <div *ngIf="!enviado">
+
+    <h3>Complete y envíe el siguiente formulario.</h3>
+
+    <form (ngSubmit)="enviar()">
+
+      <div class="grid">
+
+        <input [(ngModel)]="form.nombre" name="nombre" placeholder="Nombre completo">
+
+        <input [(ngModel)]="form.telefono" name="telefono"placeholder="Teléfono"type="tel"(input)="soloNumeros($event)">
+
+        <input [(ngModel)]="form.email" name="email" placeholder="Email">
+
+        <select [(ngModel)]="form.metodo" name="metodo">
+          <option value="">¿Cómo desea ser contactado?</option>
+          <option>Llamada telefónica</option>
+          <option>Whatsapp</option>
+          <option>Correo electrónico</option>
+        </select>
+
+      </div>
+
+      <select [(ngModel)]="form.asunto" name="asunto" class="full">
+        <option value="">Asunto</option>
+        <option>Sugerencia</option>
+        <option>Pedido Corporativo</option>
+        <option>Otros</option>
+      </select>
+
+      <textarea [(ngModel)]="form.mensaje" name="mensaje" placeholder="Mensaje"></textarea>
+
+      <div class="btn-container">
+        <button type="submit">ENVIAR</button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- 🔥 MENSAJE DESPUÉS DE ENVIAR -->
+  <div *ngIf="enviado" class="mensaje-exito">
+
+    <h3>Complete y envíe el siguiente formulario.</h3>
+
+    <p>
+      Gracias por enviar tu mensaje. Pronto nos contactaremos.
+    </p>
+
+  </div>
+
+</div>

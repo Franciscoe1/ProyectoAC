@@ -41,6 +41,7 @@
     <!-- 📦 PEDIDOS SOLO SI LOGUEADO -->
     <a *ngIf="usuario" routerLink="/pedidos" routerLinkActive="active">Mis pedidos</a>
     <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    
       <!-- 🔐 USUARIO NO LOGUEADO -->
     <a *ngIf="!usuario" routerLink="/login" routerLinkActive="active">Login</a>
   </div>  
@@ -113,6 +114,7 @@
         <a routerLink="/menu">Menú</a>
         <a routerLink="/carrito">Carrito de Compras</a>
         <a href="#">Contacto</a>
+        <a routerLink="/equipo">Equipo</a>
       </div>
 
     </div>

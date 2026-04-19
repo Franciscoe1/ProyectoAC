@@ -3,6 +3,10 @@
   <img src="assets/videos/donaroja.png" alt="decoracion">
 </div>
 
+<div class="toast" *ngIf="mensaje">
+  {{mensaje}}
+</div>
+
 <div class="login-container">
 
   <h2>Iniciar sesión</h2>
@@ -11,5 +15,10 @@
   <input [(ngModel)]="form.password" type="password" placeholder="Contraseña">
 
   <button (click)="login()">Ingresar</button>
+
+  <p class="registro-link">
+    ¿No tienes cuenta?
+    <span (click)="irRegistro()">Regístrate aquí</span>
+  </p>
 
 </div>

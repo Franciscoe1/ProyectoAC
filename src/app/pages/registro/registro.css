@@ -92,3 +92,34 @@
   top: 1px; /* mueve la imagen hacia arriba */
   left: 0;
 }
+
+
+.toast {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+
+  background: #0a6c36;
+  color: white;
+
+  padding: 14px 22px;
+  border-radius: 30px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  animation: fadeIn 0.3s ease;
+
+  z-index: 9999;
+}
+
+.toast.error {
+  background: #d70c24;
+}
+
+.toast.success {
+  background: #0a6c36;
+}

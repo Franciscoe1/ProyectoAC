@@ -6,8 +6,14 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes, withRouterConfig({ onSameUrlNavigation: 'reload' })),
-    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
+
+    // 🔥 SOLO UNO (IMPORTANTE)
+    provideRouter(
+      routes,
+      withRouterConfig({ onSameUrlNavigation: 'reload' }),
+      withInMemoryScrolling({ scrollPositionRestoration: 'top' })
+    ),
+
     provideHttpClient()
   ]
 };

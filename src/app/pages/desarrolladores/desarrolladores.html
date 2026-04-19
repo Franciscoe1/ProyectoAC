@@ -1,0 +1,22 @@
+<div class="dev-container">
+
+  <h1>NUESTRO EQUIPO</h1>
+  <p class="sub">Los desarrolladores detrás de esta experiencia 🍩</p>
+
+  <div class="cards">
+
+    <div class="card" *ngFor="let dev of desarrolladores">
+
+      <img [src]="dev.imagen" alt="dev">
+
+      <h3>{{dev.nombre}}</h3>
+
+      <span class="rol">{{dev.rol}}</span>
+
+      <p>{{dev.descripcion}}</p>
+
+    </div>
+
+  </div>
+
+</div>

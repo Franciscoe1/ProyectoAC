@@ -27,7 +27,7 @@ export class DesarrolladoresComponent {
       nombre: 'Ronald Collaguazo',
       rol: 'Full Stack Developer',
       descripcion: 'Integración completa entre frontend y backend.',
-      imagen: 'assets/videos/ronald.jpg'
+      imagen: 'assets/videos/ronald.jpeg'
     }
   ];
 
